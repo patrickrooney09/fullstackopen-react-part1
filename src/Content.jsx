@@ -2,9 +2,15 @@ import Part from "./Part";
 function Content(props) {
   return (
     <div>
-      <Part part={props.part1} exercises={props.exercises1} />
-      <Part part={props.part2} exercises={props.exercises2} />
-      <Part part={props.part3} exercises={props.exercises3} />
+      {props.parts.map((currentPart, index) => {
+        return (
+          <Part
+            part={currentPart.name}
+            exercises={currentPart.exercises}
+            key={index}
+          />
+        );
+      })}
     </div>
   );
 }
